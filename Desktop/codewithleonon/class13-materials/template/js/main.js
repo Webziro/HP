@@ -126,4 +126,104 @@ console.log(str.length);
 console.log(str.split(""));
 
 
+//OBJECT ORIENTED PROGRAMMING OOP
+const pen = {
+    type: "ballpoint",
+    color: "blue",
+    price: 1.99
+}
+console.log(pen.type);
+console.log(pen.color);
+console.log(pen.price);
+console.log(`The pen is ${pen.type} and the color is ${pen.color} and the price is ${pen.price}`);
 
+pen.type = "BBW-PEN"
+console.log(pen.type);
+
+//Adding a new property to the object
+pen.brand = "BBW";
+console.log(pen.brand);
+
+//Deleting a property from the object
+delete pen.brand;
+console.log(pen.brand);
+
+// JavaScript even offers the ability to dynamically add new properties to an already created object.
+pen.newProperty = "girls";
+console.log(pen.newProperty);
+console.log(pen);
+
+//Creating a mini game with character called Kala
+
+// const kala ={
+//     age : "26",
+//     body : "BBW-Big",
+//     health : "150"
+// }
+// console.log(`kala is ${kala.age} years old, ${kala.body} and has ${kala.health} health`);
+// //Kala is harmed by an arrow
+// kala.health = kala.health - 10;
+// console.log(`kala is ${kala.age} years old, ${kala.body} and has ${kala.health} health`);
+
+
+const kala ={
+    age : "26",
+    body : "BBW-Big",
+    health : "150",
+    name : "Big-Kala",
+    xp : 0,
+
+    //Introducing a method: It adds value to an object
+        character(){
+            return `This charater's name is ${this.name} of age ${this.age} is of body type ${this.body} and has a health of ${this.health} 
+            and total point of  ${this.xp}`
+        }
+    };
+    
+    console.log(kala.character());
+
+//Kala celebrated a new birthday
+kala.age = Number(kala.age) + 1 ;
+console.log(kala.age);
+
+//Kala was shoot by an arrow and lost -15 lives
+kala.health -= 15;
+console.log(kala.health);
+
+//Adding a new ppties to Kala
+kala.xp +=20;
+console.log(kala.character());
+
+
+// TODO: create the dog object here
+const dog = {
+    name : "Jacky",
+    species : "Turaya",
+    size : "28cm X 12m",
+
+    bark(){
+        return `The dog name is ${this.name} is a ${this.species} dog measuring ${this.size} `
+    }
+}
+console.log(`${dog.name} is a ${dog.species} dog measuring ${dog.size}`);
+console.log(`Look, a cat! ${dog.name} barks: ${dog.bark()}`);
+
+/
+
+/Problem
+const r = Number(prompt("Enter the circle radius:"));
+    
+// TODO: create the circle object here
+const circle = {
+    radius : r,
+    circumference : function (){
+        return 2 * Math.PI * this.radius
+    },
+    area : function(){
+        return Math.PI * Math.pow(this.radius, 2)
+    }
+
+}
+console.log(`Its circumference is ${circle.circumference()}`);
+console.log(`Its area is ${circle.area()}`);
+ 
