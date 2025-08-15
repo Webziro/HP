@@ -99,19 +99,31 @@ const sumOfValues = values.reduce((total, current) => total + current, 0);
 console.log(sumOfValues);
 
 // Collect words until the user types "stop" and then display them
-const enteredWords = [];
-while (true) {
-	const input = prompt('Enter a word (type "stop" to finish):');
-	if (input === null) {
-		break;
-	}
-	if (input.toLowerCase() === 'stop') {
-		break;
-	}
-	enteredWords.push(input);
-}
+// const enteredWords = [];
+// while (true) {
+// 	const input = prompt('Enter a word (type "stop" to finish):');
+// 	if (input === null) {
+// 		break;
+// 	}
+// 	if (input.toLowerCase() === 'stop') {
+// 		break;
+// 	}
+// 	enteredWords.push(input);
+// }
 
-enteredWords.forEach(word => {
-	console.log(word);
-});
+// enteredWords.forEach(word => {
+// 	console.log(word);
+// });
+
+//Strings and conversion
+const str = "I am a string";
+
+console.log(str.length);
+// console.log(str.toUpperCase());
+// console.log(str.toLowerCase());
+// console.log(str.split(" "));
+// console.log(str.split(""));
+console.log(str.split(""));
+
+
 
