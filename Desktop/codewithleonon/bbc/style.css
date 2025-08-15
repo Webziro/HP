@@ -1,0 +1,260 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+nav img {
+  height: 40px;
+}
+nav form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+nav input[type="text"] {
+  padding: 0.4rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+nav button {
+  padding: 0.4rem 1rem;
+  border: none;
+  background: #b80000;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #b80000;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav ul li a:hover {
+  color: #222;
+}
+nav > span ul {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+nav > span ul li {
+  display: flex;
+  gap: 0.5rem;
+}
+nav > span ul li span a {
+  color: #222;
+  font-weight: 400;
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  transition: background 0.2s;
+}
+nav > span ul li span a:hover {
+  background: #f2f2f2;
+}
+
+/* Main Sections */
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 2rem;
+}
+.section-1, .section-2, .other-news, .second-section, .bbc-editors, .podcast, .podcast-image, .world-text, .img {
+  flex: 1 1 300px;
+  margin-bottom: 1.5rem;
+}
+.section-1 img, .section-2 img, .other-news img, .second-section img, .podcast-image img, .img img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.section-1, .section-2, .other-news, .second-section {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.trending {
+  background: #fffbe7;
+  border-left: 4px solid #b80000;
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 350px;
+  
+}
+.trending h2 a {
+  color: #b80000;
+  text-decoration: none;
+}
+.trending p a {
+  color: #222;
+  text-decoration: none;
+}
+
+/* Editors & Podcast */
+.bbc-editors, .podcast, .podcast-image {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  
+}
+.bbc-editors img, .podcast-image img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+.bbc-editors h2, .podcast h2 {
+  color: #b80000;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.bbc-editors span, .podcast span {
+  display: inline-block;
+  margin: 0.3rem 0.5rem;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+/* World of Business & Specialist */
+.world-text {
+  padding: 1rem;
+}
+.world-text h2 {
+  color: #b80000;
+  margin-bottom: 0.5rem;
+}
+.world-text button {
+  background: #b80000;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.world-text button:hover {
+  background: #222;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  margin-top: 2rem;
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0;
+}
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+footer ul li a:hover {
+  text-decoration: underline;
+}
+footer .language-title h3, footer .language-title h4 {
+  color: #fff;
+}
+footer .igbo a {
+  color: #fff;
+  background: #b80000;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+footer .igbo a:hover {
+  background: #fff;
+  color: #b80000;
+}
+footer span h4 a {
+  color: #fff;
+}
+footer span span a {
+  color: #fff;
+  margin-right: 0.5rem;
+}
+footer p, footer p a {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+footer p a {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  nav, section {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+  .trending {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  nav, section, footer {
+    padding: 0.5rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav img {
+    height: 32px;
+  }
+  .section-1, .section-2, .other-news, .second-section, .bbc-editors, .podcast, .podcast-image, .world-text, .img {
+    flex: 1 1 100%;
+    padding: 0.5rem;
+  }
+  .trending {
+    padding: 0.5rem;
+  }
+  footer ul {
+    gap: 0.5rem;
+  }
+}

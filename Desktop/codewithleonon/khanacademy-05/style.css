@@ -1,0 +1,259 @@
+/* Reset some defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+}
+
+/* Navbar styles */
+nav {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  width: 100%;
+}
+
+nav header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.course {
+  font-weight: bold;
+  color: #1877c9;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+form {
+  flex: 1;
+  margin: 0 2rem;
+}
+
+form input[type="text"] {
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 250px;
+}
+
+.logo img {
+  width: 450px;
+  height: auto;
+  padding-right: 300px;
+}
+
+/* Dropdown styles */
+.course {
+  position: relative;
+  font-weight: bold;
+  color: #1877c9;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.course .dropdown {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  z-index: 100;
+  padding: 0.5rem 0;
+}
+
+.course:hover .dropdown,
+.course:focus-within .dropdown {
+  display: block;
+}
+
+.course .dropdown li {
+  list-style: none;
+}
+
+.course .dropdown li a {
+  display: block;
+  padding: 0.7rem 1.2rem;
+  color: #1877c9;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.course .dropdown li a:hover {
+  background: #f0f4f8;
+  color: #0d5ea3;
+}
+
+/* Responsive: stack dropdown full width on mobile */
+@media (max-width: 600px) {
+  .course .dropdown {
+    position: static;
+    min-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li span a {
+  text-decoration: none;
+  color: #1877c9;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav ul li span a:hover {
+  color: #0d5ea3;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  nav header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .course, .logo, form, nav ul {
+    margin: 0.5rem 0;
+  }
+  form {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  nav header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem;
+  }
+  .course, .logo, form, nav ul {
+    margin: 0.3rem 0;
+  }
+  nav ul {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  nav ul li {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  form input[type="text"] {
+    max-width: 100%;
+  }
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 2rem 2rem 2rem;
+
+  flex-wrap: wrap;
+}
+
+.hero-img img {
+  width: 350px;
+  max-width: 90vw;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(24,119,201,0.10);
+}
+
+.hero-text {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.hero-links li a {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background: #1877c9;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(24,119,201,0.08);
+}
+
+.hero-links li a:hover {
+  background: #145ea1;
+  box-shadow: 0 4px 16px rgba(24,119,201,0.13);
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  .hero-text {
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-img img {
+    width: 95vw;
+    max-width: 95vw;
+  }
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+  .hero-links {
+    gap: 0.5rem;
+  }
+  .hero-links li a {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}

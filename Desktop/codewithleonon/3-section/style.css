@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+}
+
+header, footer{
+    height: 100px;
+    border: 3px solid #9b8f8f;
+    clear: both;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.logo {
+  height: 40px;
+}
+
+.search-form {
+  margin-right: 2rem;
+}
+
+.search-form input[type="text"] {
+  padding: 0.4rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  font-weight: 500;
+  color: #1877c9;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links li:hover {
+  background: #f2f2f2;
+  color: #222;
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #1877c9;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+  .search-form {
+    margin: 0 0 1rem 0;
+  }
+  nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 1rem 2rem;
+    display: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 10;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+.header-2{
+    height: 200px;
+}
+
+section{
+    height: 400px;
+    float: left;
+    border: 3px solid #9b8f8f;
+}
+
+.section-1{
+    width: 20%
+}
+
+.section-2{
+    width: 40%
+}
+
+.section-3{
+    width: 20%;
+}
+
+.section-4{
+    width: 20%;
+}
+
+
+h3{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400px;
+}
+
+body{
+    background-color: #43474B;
+}
