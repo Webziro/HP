@@ -208,9 +208,9 @@ const dog = {
 console.log(`${dog.name} is a ${dog.species} dog measuring ${dog.size}`);
 console.log(`Look, a cat! ${dog.name} barks: ${dog.bark()}`);
 
-/
 
-/Problem
+
+//Problem
 const r = Number(prompt("Enter the circle radius:"));
     
 // TODO: create the circle object here
@@ -227,3 +227,41 @@ const circle = {
 console.log(`Its circumference is ${circle.circumference()}`);
 console.log(`Its area is ${circle.area()}`);
  
+
+// Write a program that creates an account object with the following characteristics:
+// const account = {
+//     name : "Alex",
+//     balance : -5,
+//     credit (amount){
+//         this.balance += amount;
+//     },
+//     describe(){
+//         return `The account name: ${this.name} has ${this.balance}`
+//     }
+// }
+// //This credits the account
+// account.credit(200)
+// //This debits the account
+// account.credit(-100)
+// console.log(account.describe());
+
+
+
+const account = {
+    name: 'Stanley Amaziro',
+    balance: 0,
+    credit(amount) {
+        if (amount > 0) {
+            console.log(`Credited ${amount} to ${this.name}`);
+        } else if (amount < 0) {
+            console.log(`Debited ${Math.abs(amount)} from ${this.name}`);
+        }
+        this.balance += amount;
+    },
+    getBalance() {
+        return this.balance;
+    }
+};
+
+account.credit(2000);
+console.log(`Current balance: ${account.getBalance()}`);
