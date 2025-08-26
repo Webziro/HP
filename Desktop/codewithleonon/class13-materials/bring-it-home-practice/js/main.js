@@ -84,5 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Create a function that multiplys three numbers and if the product is divisible by 3 alert ZEBRA
-
-
+function numDivBy3(b, c, d){
+   const product = b * c * d;
+   if (product % 3 === 0) {
+       console.log("ZEBRA");
+   }else{
+       console.log("Not ZEBRA");
+   }
+}
+numDivBy3(3, 6, 9); // Example usage
