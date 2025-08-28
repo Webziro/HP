@@ -9,7 +9,7 @@ function getEvenNumbers(arr) {
     }
     return evenNumbers;
 }
-console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // Example usage
+//console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // Example usage
 
 
 const pen = {
@@ -18,3 +18,5 @@ const pen = {
   brand: "Bic"
 };
 alert(pen.color); // This will alert "blue"
+pen.price = "2.5";
+console.log(pen);
