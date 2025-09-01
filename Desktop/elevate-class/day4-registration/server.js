@@ -57,19 +57,6 @@ app.get("/users", (_req, res) => {
   res.json({ count: users.length, users });
 }); 
 
-  // TODO: validate username with regex ^[A-Za-z0-9_]{3,20}$
-
-  // TODO: validate simple email .+@.+\..+
-
-  // TODO: validate password length >= 6
-
-  // TODO: check duplicate email (case-insensitive) against users array
-
-  // TODO: push new user (without password) to users array
-
-  // TODO: return 201 with { message, user }
-// });
-
-
+// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
