@@ -1,6 +1,28 @@
 const express = require("express");
 const app = express();
 
+//Middleware to fix destructioning of fields
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//Require mongoose for our database
+const mongoose = require('mongoose');
+
+
+//Create database connection with mongoose
+async function connectDB() {
+  await mongoose.connect('mongodb+srv://stanleyjs:pPlA5BGcAS03WHnf@cluster0.cqhvftj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+
+  console.log('Connected to MongoDB');
+}
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true, trim: true },
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  password: { type: String, required: true, minlength: 8, maxlength: 100, select: false }
+});
+
+const User = mongoose.model('User', userSchema);
+
 // TODO: create an in-memory users array to store { username, email }
 const users = [];
 
@@ -35,7 +57,7 @@ app.post("/register", (req, res) => {
     return res.status(400).json({ error: "Invalid email" });
   }
 
-  // TODO: validate password length >= 8
+  // TODO: validate password length >= 8 
   if (password.length < 8) {
     return res.status(400).json({ error: "Password must be at least 8 characters long" });
   }
@@ -45,11 +67,17 @@ app.post("/register", (req, res) => {
   if (existingUser) {
     return res.status(400).json({ error: "Email already in use" });
   }
-
-  // TODO: push new user (without password) to users array
-  users.push({ username, email });
-  // TODO: return 201 with { message, user }
-  res.status(201).json({ message: "User registered successfully", user: { username, email } });
+  User.create({ username, email, password })
+    .then(() => {
+      // TODO: push new user (without password) to users array
+      users.push({ username, email });
+      // TODO: return 201 with { message, user }
+      res.status(201).json({ message: "User registered successfully", user: { username, email } });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: "Internal server error" });
+    });
 });
 
 // (Optional) List users
@@ -60,3 +88,4 @@ app.get("/users", (_req, res) => {
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+
