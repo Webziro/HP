@@ -54,20 +54,20 @@ export default function App() {
     setInputValue("");
   }
 
-  function handleFormSubmit(e) {
+  function handleFormSubmit(e, selectedDate) {
     e.preventDefault();
     if (inputValue.trim() === "") return;
     if (editingId) {
       setTodos(currentTodos =>
         currentTodos.map(todo =>
-          todo.id === editingId ? { ...todo, title: inputValue } : todo
+          todo.id === editingId ? { ...todo, title: inputValue, date: selectedDate } : todo
         )
       );
       setEditingId(null);
     } else {
       setTodos(currentTodos => [
         ...currentTodos,
-        { id: crypto.randomUUID(), title: inputValue, completed: false }
+        { id: crypto.randomUUID(), title: inputValue, completed: false, date: selectedDate }
       ]);
     }
     setInputValue("");

@@ -37,12 +37,19 @@ body {
   gap: 0.5rem;
 }
 
+/* Increase the space for the input element */
+.form-row input {
+  min-width: 200px;
+  height: 2.5rem;
+  font-size: 1.1rem;
+}
+
 .btn {
   background: hsl(200, 100%, 50%, 0.1);
   border: 1px solid hsl(200, 100%, 50%);
   color: hsl(200, 100%, 50%);
-  padding: 0.25em 0.5em;
-  border-radius: 0.25em;
+  padding: .25em 1em;
+  border-radius: 2.25em;
   cursor: pointer;
   outline: none;
 }
