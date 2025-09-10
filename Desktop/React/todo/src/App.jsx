@@ -1,30 +1,11 @@
-
 import { useState } from "react";
+import { TodoForm } from "./TodoForm";
 import "./styles.css";
 
-
 export default function App() {
-  const [newItem, setNewItems] = useState("");
+  // const [newItem, setNewItems] = useState("");
   const [todos, setTodos] = useState([]);
-
-
-  //The function to submit the form handleSubmit
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (newItem.trim() === "") return; // Prevent adding empty items
-    console.log(newItem);
-
-    setTodos(currentTodos => {
-      return [
-        ...currentTodos,
-        { id: crypto.randomUUID(), title: newItem, completed: false }
-      ];
-    });
-
-    // Clear the input field after submitting
-    setNewItems("");
-  }
-
+  
  function toggleTodo(id, completed) {
   setTodos(currentTodos => {
     return currentTodos.map(todo => {
@@ -36,6 +17,12 @@ export default function App() {
   })
  }
 
+ function deleteTodo(id) {
+  setTodos(currentTodos => {
+    return currentTodos.filter(todo => todo.id !== id)
+  })
+ }
+
 // function setChecked(checked) {
 //   console.log(checked);
 // }
@@ -43,31 +30,25 @@ export default function App() {
   return (
     <>
     <h2 className="header">This is our to do list app</h2>
-      <form onSubmit={handleSubmit} className="new-item-form">
-          <div className="form-row">
-            <label htmlFor="item">New Item</label>
-            <input value={newItem} onChange={(e) => setNewItems(e.target.value)} type="text" id="item" />
-          </div>
+    <TodoForm setTodos={setTodos} />
+    <h1 className="header">Todo List</h1>
 
-          <button className="btn" type="submit">Add</button>
-      </form>
-      <h1 className="header">Todo List</h1>
-
-      {/* List Items will go here.. */}
-      <ul className="list">
-        {todos.map(todo => {
-          return (
-            <li key={todo.id}>
-              <label htmlFor={todo.id}>
-          <input type="checkbox" id={todo.id} checked={todo.completed} 
-          onChange={(e) => toggleTodo(todo.id, e.target.checked)}/> 
-                {todo.title}
-              </label>
-              <button className="btn btn-danger">Delete</button>
-            </li>
-          )
-        })}
-      </ul>
+    {/* List Items will go here.. */}
+    <ul className="list">
+      {todos.length === 0 && "You currently have no Todos, please add a todo!"}
+      {todos.map(todo => {
+        return (
+          <li key={todo.id}>
+            <label htmlFor={todo.id}>
+              <input type="checkbox" id={todo.id} checked={todo.completed}
+                onChange={(e) => toggleTodo(todo.id, e.target.checked)} />
+              {todo.title}
+            </label>
+            <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger">Delete</button>
+          </li>
+        )
+      })}
+    </ul>
     </>
   );
 }
