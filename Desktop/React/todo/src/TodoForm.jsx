@@ -6,7 +6,7 @@ const [newItem, setNewItems] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
     if (newItem.trim() === "") return; // Prevent adding empty items
-    console.log(newItem);
+    //console.log(newItem);
 
     setTodos(currentTodos => {
       return [
@@ -20,7 +20,6 @@ const [newItem, setNewItems] = useState("");
   }
 
   return (
-    
       <form onSubmit={handleSubmit} className="new-item-form">
           <div className="form-row">
             <label htmlFor="item">New Item</label>
