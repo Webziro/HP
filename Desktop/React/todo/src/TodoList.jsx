@@ -1,16 +1,6 @@
 import { TodoLi } from "./TodLi";
 
-export function TodoList({
-    todos,
-    toggleTodo,
-    deleteTodo,
-    editingId,
-    editingValue,
-    startEdit,
-    cancelEdit,
-    saveEdit,
-    setEditingValue
-}) {
+export function TodoList({ todos, toggleTodo, deleteTodo, startEdit, editingId }) {
     return (
         <ul className="list">
             {todos.length === 0 && "You currently have no Todos, please add a todo!"}
@@ -22,12 +12,8 @@ export function TodoList({
                     key={todo.id}
                     toggleTodo={toggleTodo}
                     deleteTodo={deleteTodo}
-                    isEditing={editingId === todo.id}
-                    editingValue={editingValue}
                     startEdit={startEdit}
-                    cancelEdit={cancelEdit}
-                    saveEdit={saveEdit}
-                    setEditingValue={setEditingValue}
+                    isEditing={editingId === todo.id}
                 />
             ))}
         </ul>
