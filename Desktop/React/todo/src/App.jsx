@@ -75,7 +75,7 @@ export default function App() {
 
   return (
     <>
-      <h2 className="header">This is our to do list app</h2>
+      <h2 className="header">Welcome to our simple todo list app</h2>
       <TodoForm
         value={inputValue}
         setValue={setInputValue}
