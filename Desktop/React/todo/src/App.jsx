@@ -11,21 +11,35 @@ export default function App() {
   //The function to submit the form handleSubmit
   function handleSubmit(e) {
     e.preventDefault();
+    if (newItem.trim() === "") return; // Prevent adding empty items
     console.log(newItem);
-    // setNewItems(""); 
- 
 
+    setTodos(currentTodos => {
+      return [
+        ...currentTodos,
+        { id: crypto.randomUUID(), title: newItem, completed: false }
+      ];
+    });
+
+    // Clear the input field after submitting
+    setNewItems("");
+  }
+
+ function toggleTodo(id, completed) {
   setTodos(currentTodos => {
-    return [
-      ...currentTodos,
-      { id: crypto.randomUUID(), title: newItem, completed: false }
-    ]
-  });
-
-  //Clear the input field after submitting
-  setNewItems(['']);
+    return currentTodos.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, completed }
+      }
+      return todo;
+    })
+  })
  }
 
+// function setChecked(checked) {
+//   console.log(checked);
+// }
+  
   return (
     <>
     <h2 className="header">This is our to do list app</h2>
@@ -45,7 +59,8 @@ export default function App() {
           return (
             <li key={todo.id}>
               <label htmlFor={todo.id}>
-                <input type="checkbox" id={todo.id} checked={todo.completed} onChange={(e) => setChecked(e.target.checked)}/> 
+          <input type="checkbox" id={todo.id} checked={todo.completed} 
+          onChange={(e) => toggleTodo(todo.id, e.target.checked)}/> 
                 {todo.title}
               </label>
               <button className="btn btn-danger">Delete</button>
